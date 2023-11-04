@@ -1,20 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.SceneManagement;
 using UnityEngine;
 
-public class Movement : MonoBehaviour
+public class movement : MonoBehaviour
 {
     public float moveSpeed;
     private Rigidbody2D rb;
-    private SpriteRenderer spriteRenderer;
     public Animator anim;
+    private SpriteRenderer spirteRenderers;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-        moveSpeed = 15f;
+        moveSpeed = 8f;
+        spirteRenderers = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -22,20 +22,23 @@ public class Movement : MonoBehaviour
         float moveX = Input.GetAxis("Horizontal");
         float moveY = Input.GetAxis("Vertical");
 
-        anim.SetBool("walk", true);
+        Vector2 movement = new Vector2(moveX, moveY) * moveSpeed * Time.deltaTime;
+        rb.MovePosition(rb.position + movement);
 
-        print(moveX);
-
-        if (moveX > 0)
+        if (movement != Vector2.zero) 
         {
-            spriteRenderer.flipX = false; // Player faces right
-        }
-        else if (moveX < 0)
+            anim.SetBool("walk", true);
+        }else 
         {
-            spriteRenderer.flipX = true; // Player faces left
+            anim.SetBool("walk", false);
         }
 
-        //Vector2 movement = new Vector2(moveX, moveY) * moveSpeed * Time.deltaTime;
-        //rb.MovePosition(rb.position + movement);
+        if (moveX > 0) 
+        {
+            spirteRenderers.flipX = false;
+        }else if (moveX < 0) 
+        {
+            spirteRenderers.flipX = true;
+        }
     }
 }

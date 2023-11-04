@@ -6,6 +6,7 @@ TagManager:
   tags:
   - ChangeRoom
   - Interactable
+  - Final
   layers:
   - Default
   - TransparentFX

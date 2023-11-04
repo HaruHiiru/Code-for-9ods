@@ -16,6 +16,7 @@ public class Fade : MonoBehaviour
         i = 1;
         start = false;
         DoSomething();
+        DoSomething2();
     }
 
     // Update is called once per frame
@@ -33,5 +34,11 @@ public class Fade : MonoBehaviour
     {
         await Task.Delay((int)Clip.length * 500-4000);
         start = true;
+    }
+
+    async void DoSomething2()
+    {
+        await Task.Delay((int)Clip.length * 1000 + 2000);
+        SceneManager.LoadScene("kitchen");
     }
 }
