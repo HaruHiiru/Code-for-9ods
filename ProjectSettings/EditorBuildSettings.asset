@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/News.unity
     guid: b585628214a3f8b46b6d6dc0a899fd75
+  - enabled: 1
+    path: Assets/Scenes/Bedroom.unity
+    guid: bd6c6931378377d468a9131cf514ed5d
+  - enabled: 1
+    path: Assets/Scenes/Kitchen.unity
+    guid: fbe2f8c61a14aa447b6c24decde62345
   m_configObjects: {}
